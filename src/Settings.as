@@ -30,7 +30,7 @@ package
 			CONFIG::mobile  {
 				return 25;
 			}
-			return 50;
+			return 20;
 		}
 		
 		static public function get particleSize():Number 
@@ -46,7 +46,7 @@ package
 			CONFIG::mobile  {
 				return 30;
 			}
-			return 70;
+			return 60;
 		}
 		
 		static public function get Scale():Number
@@ -93,7 +93,7 @@ package
 		
 		static public function get particleAlpha():Number 
 		{
-			return 0.05;
+			return 0.2;
 		}
 	}
 }

@@ -40,7 +40,7 @@ package
 		private var container:Mesh;
 		private var frameData:FrameData;
 		
-		private var sprites:Vector.<Sprite> = new Vector.<Sprite>();
+		//private var sprites:Vector.<Sprite> = new Vector.<Sprite>();
 		
 		public function get bokeh1():BitmapData{
 			if (!_bokeh1) _bokeh1 = (new bokeh1Class()).bitmapData;
@@ -50,14 +50,14 @@ package
 		public function ParticleBatch(particlesPerBatch:int, stage:Stage) 
 		{
 			
-			for (var j:int = 0; j < 100; j++) 
+			/*for (var j:int = 0; j < 100; j++) 
 			{
 				var s:Sprite = new Sprite();
 				s.graphics.beginFill(0xFFDDDD);
 				s.graphics.drawCircle(0, 0, 4);
 				stage.addChild(s);
 				sprites.push(s);
-			}
+			}*/
 			super();
 			
 			trace("particlesPerBatch = " + particlesPerBatch);
@@ -78,7 +78,7 @@ package
 				for (var i:int = 0; i < particlesPerBatch-2; ++i)
 				{
 					if (!sharedBaseMesh) {
-						sharedBaseMesh = duplicate(new Mesh(pointGeo, null), 400);
+						sharedBaseMesh = duplicate(new Mesh(pointGeo, null), 150);
 					}
 					
 					//var mesh:Mesh = new Mesh(pointGeo.clone(), null);
@@ -114,13 +114,7 @@ package
 			{
 				var mesh:Mesh = new Mesh(baseMesh.geometry.clone(), null);
 				mesh.z = i / num;
-				/*var vertexData:Vector.<Number> = CompactSubGeometry(mesh.geometry.subGeometries[0]).vertexData;
-				for (var j:int = 0; j < vertexData.length/13; j+=13) 
-				{
-					trace(vertexData[j + 3]);
-					vertexData[j + 3] = i / num;
-				}
-				CompactSubGeometry(mesh.geometry.subGeometries[0]).updateData(vertexData);*/
+				mesh.scale(1.1 - (i / num));
 				container.addChild(mesh);
 			}
 			

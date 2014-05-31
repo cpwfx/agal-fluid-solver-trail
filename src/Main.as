@@ -47,7 +47,7 @@ package
 		{
 			view = new View3D();
 			addChild(view);
-			view.antiAlias = 0;
+			view.antiAlias = 4;
 			view.backgroundColor = 0x111111;
 			
 			var awayStats:AwayStats = new AwayStats(view);
