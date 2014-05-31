@@ -191,86 +191,50 @@ package animators
 			//code += "mov v2.xyzw, vc[vt6.x].wwww \n"; // move rgb into v1
 			
 			
-			code += "mov vt2.xyzw, vt0.zzzz \n"; // move trail index into vt2.x;
-			//code += "add vt2.xyzw, vt2.xyzw, vc5.zzzz \n"; // remove trail fraction from trail index
-			code += "sub vt2.xyzw, vt2.xyzw, vt6.xxxx \n"; // remove trail fraction from trail index
-			// 10 - 10+numOfTrails
+			code += "mov vt7.xyzw, vt0.zzzz \n"; // move trail index into vt7.x;
+			code += "sub vt7.xyzw, vt7.xyzw, vt6.xxxx \n"; // remove trail fraction from trail index
 			
-			//code += "add vt2.x, vt2.x, vc5.x \n";
-			code += "add vt2.y, vt2.y, vc5.w \n";
+			code += "add vt7.y, vt7.y, vc5.w \n";
 			
-			code += "add vt2.z, vt2.z, vc5.w \n";
-			code += "add vt2.z, vt2.z, vc5.w \n";
+			code += "add vt7.z, vt7.z, vc5.w \n";
+			code += "add vt7.z, vt7.z, vc5.w \n";
 			
-			code += "add vt2.w, vt2.w, vc5.w \n";
-			code += "add vt2.w, vt2.w, vc5.w \n";
-			code += "add vt2.w, vt2.w, vc5.w \n";
+			code += "add vt7.w, vt7.w, vc5.w \n";
+			code += "add vt7.w, vt7.w, vc5.w \n";
+			code += "add vt7.w, vt7.w, vc5.w \n";
 			
 			
 			code += "mov vt0.z, vc5.z \n"; // reset z position to 0;
 			
-			//code += "add vt0.xy, vt0.xy, vc[vt2.x].xy \n"; // move z position back to 0
 			
-			//return code;
 			
-			//code += "add vt0.xy, vt0.xy, vc[vt2.w].xy \n"; // move point 1 in vt3
+			/*code += "add vt0.xy, vt0.xy, vc[vt7.x].xy \n";
 			
-			code += "add vt0.xy, vt0.xy, vc[vt2.x].xy \n";
-			//code += "add vt0.x, vt0.x, vc16.x \n";
-			
-			code += "mov vt3.xy, vc[vt2.x].xy \n";
-			code += "mov vt4.xy, vc[vt2.w].xy \n";
+			code += "mov vt3.xy, vc[vt7.x].xy \n";
+			code += "mov vt4.xy, vc[vt7.w].xy \n";
 			code += "sub vt5.xy, vt4.xy, vt3.xy \n";
 			
 			code += "mul vt5.xy, vt5.xy, vt6.xx \n";
 			code += "add vt0.xy, vt0.xy, vt5.xy \n";
 			
+			return code;*/
 			
-			//code += "sub vt4.x, vt3.x, vt3.z \n";
-			
-			//code += "mov vt3.y, vt3.y \n";
-			//code += "mul vt4.x, vt4.x, vt6.x \n";
-			//code += "add vt0.x, vt0.x, vt4.x \n";
-			
-			//code += "mov vt3.xy, vc[vt2.x].xy \n";
-			//code += "mov vt3.zw, vc[vt2.x].xy \n";
-			//code += "sub vt3.xy, vt3.xy, vt3.zw \n";
-			
-			//code += "mul vt3.xy, vt3.xy, vt6.xx \n";
-			//code += "add vt0.xy, vt0.xy, vt3.xy \n";
-			
-			/*code += "mov vt3.xy, vc[vt2.y].xy \n"; // move point 1 in vt3
-			code += "sub vt3.xy, vt3.xy, vc[vt2.x].xy \n"; // move point 1 in vt3
-			code += "mul vt3.xy, vt3.xy, vt6.xx \n"; // move point 1 in vt3
-			code += "add vt3.xy, vt3.xy, vc[vt2.x].xy \n"; // move point 1 in vt3
-			code += "add vt0.xy, vt0.xy, vt3.xy \n";*/
-			
-			/*code += "mov vt3.xy, vc[vt2.x].xy \n"; // move point 1 in vt3
-			code += "sub vt3.xy, vt3.xy, vc[vt2.x].xy \n"; // Place difference between point 1 and point 2 in vt3 // vc10.zz
-			code += "mul vt3.xy, vt3.xy, vt6.xx \n"; // Multiple difference percentage
-			code += "sub vt3.xy, vt3.xy, vc[vt2.w].xy \n";
-			code += "sub vt0.xy, vt0.xy, vt3.xy \n";
-			
-			code += "add vt0.xy, vt0.xy, vt3.xy \n";*/
-			
-			return code;
-			
-			code += "mov vt1.xy, vc[vt2.x].xy \n"; // move point 1 in vt1
-			code += "sub vt1.xy, vt1.xy, vc[vt2.y].xy \n"; // Place difference between point 1 and point 2 in vt1
+			code += "mov vt1.xy, vc[vt7.x].xy \n"; // move point 1 in vt1
+			code += "sub vt1.xy, vt1.xy, vc[vt7.y].xy \n"; // Place difference between point 1 and point 2 in vt1
 			code += "mul vt1.xy, vt1.xy, vt6.xx \n"; // Multiple difference percentage
-			code += "sub vt1.xy, vt1.xy, vc[vt2.x].xy \n"; 
+			code += "sub vt1.xy, vt1.xy, vc[vt7.x].xy \n"; 
 			code += "sub vt1.xy, vt0.xy, vt1.xy \n"; 
 			
-			code += "mov vt2.xy, vc[vt2.y].xy \n"; // move point 2 in vt2
-			code += "sub vt2.xy, vt2.xy, vc[vt2.z].xy \n"; // Place difference between point 2 and point 3 in vt2
+			code += "mov vt2.xy, vc[vt7.y].xy \n"; // move point 2 in vt2
+			code += "sub vt2.xy, vt2.xy, vc[vt7.z].xy \n"; // Place difference between point 2 and point 3 in vt2
 			code += "mul vt2.xy, vt2.xy, vt6.xx \n"; // Multiple difference percentage
-			code += "sub vt2.xy, vt2.xy, vc[vt2.y].xy \n"; 
+			code += "sub vt2.xy, vt2.xy, vc[vt7.y].xy \n"; 
 			code += "sub vt2.xy, vt0.xy, vt2.xy \n"; 
 			
-			code += "mov vt3.xy, vc[vt2.z].xy \n"; // move point 3 in vt3
-			code += "sub vt3.xy, vt3.xy, vc[vt2.w].xy \n"; // Place difference between point 3 and point 4 in vt3
+			code += "mov vt3.xy, vc[vt7.z].xy \n"; // move point 3 in vt3
+			code += "sub vt3.xy, vt3.xy, vc[vt7.w].xy \n"; // Place difference between point 3 and point 4 in vt3
 			code += "mul vt3.xy, vt3.xy, vt6.xx \n"; // Multiple difference percentage
-			code += "sub vt3.xy, vt3.xy, vc[vt2.z].xy \n"; 
+			code += "sub vt3.xy, vt3.xy, vc[vt7.z].xy \n"; 
 			code += "sub vt3.xy, vt0.xy, vt3.xy \n"; 
 			
 			code += "sub vt4.xy, vt1.xy, vt2.xy \n"; // Place difference between "resulting point 1" and "resulting point 2" in vt4

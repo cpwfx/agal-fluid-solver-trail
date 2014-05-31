@@ -30,7 +30,7 @@ package
 			CONFIG::mobile  {
 				return 25;
 			}
-			return 100;
+			return 50;
 		}
 		
 		static public function get particleSize():Number 
@@ -38,7 +38,7 @@ package
 			CONFIG::mobile  {
 				return 20;
 			}
-			return 10;
+			return 1;
 		}
 		
 		static public function get FLUID_WIDTH():uint 
@@ -46,7 +46,7 @@ package
 			CONFIG::mobile  {
 				return 30;
 			}
-			return 60;
+			return 70;
 		}
 		
 		static public function get Scale():Number
@@ -62,7 +62,7 @@ package
 			CONFIG::mobile  {
 				return .001;
 			}
-			return .001;
+			return .00001;
 		}
 		
 		static public function get deltaT():Number 
@@ -70,7 +70,7 @@ package
 			CONFIG::mobile  {
 				return .2;
 			}
-			return .3;
+			return .5;
 		}
 		
 		static public function get fadeSpeed():Number 
@@ -83,12 +83,17 @@ package
 		
 		static public function get wrap_y():Boolean 
 		{
-			return true;
+			return false;
 		}
 		
 		static public function get wrap_x():Boolean 
 		{
-			return true;
+			return false;
+		}
+		
+		static public function get particleAlpha():Number 
+		{
+			return 0.05;
 		}
 	}
 }

@@ -6,7 +6,7 @@ package
 	 */
 	public class FrameData 
 	{
-		private var bufferLength:int = 100;
+		private var bufferLength:int = 20;
 		private var buffer:Vector.<Frame> = new Vector.<Frame>();
 		private var currentIndex:int = 0;
 		private var particlesPerBatch:int;

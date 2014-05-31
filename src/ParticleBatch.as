@@ -69,20 +69,21 @@ package
 			pointMaterial.alphaBlending = true;
 			pointMaterial.blendMode = BlendMode.ADD;
 			//pointMaterial.alpha = 0.03;
-			pointMaterial.colorTransform = new ColorTransform(1, 0.5 + (Math.random() * 0.3), Math.random(), 0.05, 0, 0, 0, 0);
+			pointMaterial.colorTransform = new ColorTransform(1, 0.5, Math.random() * 0.5, Settings.particleAlpha, 0, 0, 0, 0);
 			
 			if (!sharedContainer){
 				pointGeo = new PlaneGeometry(Settings.particleSize, Settings.particleSize, 1, 1, false);
 				
 				var mergeContainer:ObjectContainer3D = new ObjectContainer3D();
-				for (var i:int = 0; i < particlesPerBatch; ++i)
+				for (var i:int = 0; i < particlesPerBatch-2; ++i)
 				{
 					if (!sharedBaseMesh) {
-						sharedBaseMesh = duplicate(new Mesh(pointGeo, null), 100);
+						sharedBaseMesh = duplicate(new Mesh(pointGeo, null), 400);
 					}
 					
 					//var mesh:Mesh = new Mesh(pointGeo.clone(), null);
 					var mesh:Mesh = new Mesh(sharedBaseMesh.geometry.clone(), null);
+					mesh.scale(1 + (Math.random() * 2));
 					mesh.z = 10 + i;
 					
 					mergeContainer.addChild(mesh);
@@ -142,9 +143,9 @@ package
 			frameData.data = value;
 			
 			positionData1 = frameData.lastData(0);
-			positionData2 = frameData.lastData(1);
-			positionData3 = frameData.lastData(2);
-			positionData4 = frameData.lastData(3);
+			positionData2 = frameData.lastData(3);
+			positionData3 = frameData.lastData(6);
+			positionData4 = frameData.lastData(9);
 			
 			pointCloudAnimationSet.positionData1 = positionData1;
 			pointCloudAnimationSet.positionData2 = positionData2;
